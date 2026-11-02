@@ -1,12 +1,12 @@
 {
   "name": "claude-codex-harness",
   "owner": { "name": "Marko Pejanovic" },
-  "description": "Claude Code + OpenAI Codex harness: Claude delegates markdown asset generation to Codex.",
+  "description": "Claude Code + OpenAI Codex harness: Claude delegates markdown and image assets to Codex.",
   "plugins": [
     {
       "name": "codex-harness",
       "source": "./",
-      "description": "Let Claude Code delegate writing markdown assets to the OpenAI Codex CLI."
+      "description": "Let Claude Code delegate markdown and image assets to the OpenAI Codex CLI."
     }
   ]
 }

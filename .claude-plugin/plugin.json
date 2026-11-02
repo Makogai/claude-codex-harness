@@ -1,8 +1,8 @@
 {
   "name": "codex-harness",
-  "version": "0.2.1",
-  "description": "Let Claude Code delegate writing markdown assets (design docs, lore, specs, dialogue) to the OpenAI Codex CLI, one .md file per call.",
+  "version": "0.3.0",
+  "description": "Let Claude Code delegate assets to the OpenAI Codex CLI: markdown documents (design docs, lore, specs, dialogue) and PNG images (icons, sprites, concept art), saved straight into your project.",
   "author": { "name": "Marko Pejanovic" },
   "license": "MIT",
-  "keywords": ["codex", "openai", "assets", "markdown", "gamedev", "delegation"]
+  "keywords": ["codex", "openai", "assets", "markdown", "images", "gamedev", "delegation"]
 }
