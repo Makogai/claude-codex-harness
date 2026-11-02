@@ -1,6 +1,6 @@
 {
   "name": "codex-harness",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Let Claude Code delegate writing markdown assets (design docs, lore, specs, dialogue) to the OpenAI Codex CLI, one .md file per call.",
   "author": { "name": "Marko Pejanovic" },
   "license": "MIT",

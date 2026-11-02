@@ -1,0 +1,17 @@
+{
+  "description": "Checks at session start that the Codex CLI is installed and logged in.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/check-codex.sh\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

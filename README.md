@@ -8,30 +8,40 @@ You ──► Claude Code ──(brief + reference files)──► codex exec (r
                 └──── reads assets/bestiary.md ◄── script saves Codex's answer
 ```
 
-## Requirements
+## Quick start
 
-- [Claude Code](https://claude.com/claude-code)
-- [Codex CLI](https://github.com/openai/codex), logged in:
-  ```
-  npm i -g @openai/codex
-  codex login
-  ```
-  Codex needs a ChatGPT plan or an OpenAI API key. Each person uses their own account.
-- `bash`: built into macOS and Linux. On Windows it's Git Bash, which Claude Code already uses.
-
-## Install
-
-At the Claude Code prompt:
+**1. Install the plugin.** At the Claude Code prompt:
 
 ```
 /plugin install codex-harness --marketplace Makogai/claude-codex-harness
 ```
 
-Answer `y` to add the marketplace, then pick a scope (user scope = every project). From a normal shell, the same thing is:
+Answer `y` to add the marketplace, then pick a scope (user scope = every project). From a normal shell, the same thing is `claude plugin install codex-harness --marketplace Makogai/claude-codex-harness`.
+
+**2. Set up Codex.** Start a new Claude Code session. If Codex is missing or logged out, a notice says so at the top. Then run:
 
 ```
-claude plugin install codex-harness --marketplace Makogai/claude-codex-harness
+/codex-harness:setup
 ```
+
+Claude checks everything, installs the Codex CLI for you (after asking), and tells you when to type `! codex login` so you can sign in in the browser. It can also run a quick test at the end.
+
+**3. Use it.** Ask Claude to have Codex write something (see [Use](#use)).
+
+## Requirements
+
+- [Claude Code](https://claude.com/claude-code)
+- [Codex CLI](https://github.com/openai/codex), installed and logged in. `/codex-harness:setup` handles both. To do it by hand:
+  ```
+  npm i -g @openai/codex      # or on macOS: brew install --cask codex
+  codex login
+  ```
+  Codex needs a ChatGPT plan or an OpenAI API key. Each person uses their own account. If you use the `OPENAI_API_KEY` or `CODEX_API_KEY` environment variable instead of logging in, the startup check accepts that.
+- `bash`: built into macOS and Linux. On Windows, install [Git for Windows](https://git-scm.com/download/win), which includes Git Bash.
+
+### The startup check
+
+The plugin adds a small check that runs when a Claude Code session starts (`hooks/check-codex.sh`). It runs only `command -v codex` and `codex login status`, makes no network calls, and stays silent when everything is ready. If something's missing, you see a one-line notice, and Claude knows to offer setup before trying to use Codex.
 
 ## Use
 
@@ -88,7 +98,8 @@ Claude Code asks before running the script. Picking "don't ask again" when it do
 
 ## Troubleshooting
 
-- **`codex CLI not found`**: install it (see Requirements) and make sure `codex --version` works in the same terminal.
+- **Anything setup-related**: run `/codex-harness:setup` first.
+- **`codex CLI not found` right after installing**: npm's global folder isn't on your PATH yet. Restart the terminal and Claude Code, then check that `codex --version` works.
 - **Auth or usage-limit errors**: run `codex login` (inside Claude Code: `! codex login`).
 - **Generic or invented content**: pass the files that matter with `--ref` (or ask Claude to), and add a `CODEX_STYLE.md`.
 - **See what Codex did**: set `CODEX_HARNESS_LOG=codex.log` and run again.
