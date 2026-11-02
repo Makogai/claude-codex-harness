@@ -1,20 +1,44 @@
 <p align="center">
-  <img src=".claude-plugin/icon.png" width="160" alt="codex-harness icon: a dark terminal badge with a glowing orange spark">
+  <img src="assets/readme/hero.png" width="100%" alt="An orange spark and a dark terminal badge linked by a glowing ribbon, surrounded by a document, a picture, a pixel-art potion and a folder">
 </p>
 
-# codex-harness
+<h1 align="center">codex-harness</h1>
+
+<p align="center">
+  <b>Claude Code briefs. Codex makes the asset. It lands in your project.</b>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Claude%20Code-plugin-E8743B?style=flat-square" alt="Claude Code plugin">
+  <img src="https://img.shields.io/badge/powered%20by-Codex%20CLI-141414?style=flat-square" alt="Powered by the Codex CLI">
+  <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FMakogai%2Fclaude-codex-harness%2Fmain%2F.claude-plugin%2Fplugin.json&query=%24.version&label=version&color=F2C9A8&style=flat-square" alt="Plugin version">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-6B7280?style=flat-square" alt="MIT license"></a>
+</p>
 
 A Claude Code plugin that lets Claude hand work to **OpenAI Codex**. You keep working with Claude as usual: building your game, app, whatever. When something needs an asset, Claude briefs Codex, Codex makes it, and the result lands **in your project folder**. Claude then checks it and keeps going.
 
-- **Written assets → markdown files:** a bestiary, quest list, lore bible, dialogue, level spec, docs.
-- **Visual assets → PNG images** from Codex's image generation: icons, sprites, concept art, backgrounds.
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="assets/readme/documents.png" width="240" alt="A stack of markdown pages with an orange spark sticker"><br>
+      <b>Written assets → <code>.md</code></b><br>
+      <sub>bestiary, quest list, lore bible, dialogue, level spec, docs</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="assets/readme/images.png" width="240" alt="Three picture cards: a landscape, a pixel-art lantern and an app icon"><br>
+      <b>Visual assets → <code>.png</code></b><br>
+      <sub>icons, sprites, concept art, backgrounds (Codex image generation)</sub>
+    </td>
+  </tr>
+</table>
 
-```
-You ──► Claude Code ──(brief + reference files)──► codex exec (read-only)
-                ▲                                        │
-                └── uses assets/bestiary.md ◄── script saves the .md / moves the .png
-                         assets/lantern.png       into your project
-```
+<p align="center">
+  <img src="assets/readme/flow.png" width="100%" alt="The orange spark hands a note to the terminal badge, which sends a document and a picture into a folder">
+</p>
+
+<p align="center">
+  <sub><b>Claude</b> writes the brief and picks the reference files → <b>Codex</b> makes the asset (read-only, never touches your code) → the file is saved <b>in your project</b>, and Claude checks it and uses it.</sub>
+</p>
 
 ## Quick start
 
@@ -73,6 +97,21 @@ Or call it directly:
 Claude writes the brief, chooses a path (default `assets/<name>.md` or `assets/<name>.png`), passes along the files Codex needs, and runs Codex. Several assets can run in parallel. Expect roughly 10 seconds to a few minutes per document, and about a minute per image.
 
 Image generation picks its own resolution (often about 1254 px square). If you need an exact size or format, just ask Claude to convert it afterwards.
+
+### Made with it
+
+All the art in this README was made by Codex image generation, most of it through this plugin. A few examples of what you can ask for:
+
+<table>
+  <tr>
+    <td align="center" width="25%"><img src="assets/readme/example-icon.png" width="170" alt="Plugin icon: terminal badge with an orange spark"><br><sub>an icon for this plugin, Codex + Claude</sub></td>
+    <td align="center" width="25%"><img src="assets/readme/example-lantern.png" width="170" alt="Painterly brass miner's lantern"><br><sub>a painterly brass mining lantern item</sub></td>
+    <td align="center" width="25%"><img src="assets/readme/example-slime.png" width="170" alt="Pixel-art green slime"><br><sub>a pixel-art slime enemy</sub></td>
+    <td align="center" width="25%"><img src="assets/readme/example-flooded-town.png" width="170" alt="Painterly flooded mining town at dusk with a lantern-lit rowboat"><br><sub>concept art: a flooded 1890s mining town at dusk</sub></td>
+  </tr>
+</table>
+
+The banner, the two cards and the flow strip were made in one go: four image requests run in parallel, each with the plugin icon passed as `--ref` and a shared `CODEX_STYLE.md`, so they match.
 
 ### Consistent style across assets
 
