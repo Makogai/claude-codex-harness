@@ -1,3 +1,7 @@
+<p align="center">
+  <img src=".claude-plugin/icon.png" width="160" alt="codex-harness icon: an orange prompt chevron flowing into a teal document">
+</p>
+
 # codex-harness
 
 A Claude Code plugin that lets Claude hand writing jobs to **OpenAI Codex**. You keep working with Claude as usual: building your game, app, whatever. When something needs a written asset (a bestiary, quest list, lore bible, dialogue, level spec, docs), Claude briefs Codex, Codex writes it, and the result lands in your project as a **markdown file**. Claude then reads it and keeps going.
