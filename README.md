@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".claude-plugin/icon.png" width="160" alt="codex-harness icon: an orange prompt chevron flowing into a teal document">
+  <img src=".claude-plugin/icon.png" width="160" alt="codex-harness icon: a dark terminal badge with a glowing orange spark">
 </p>
 
 # codex-harness
